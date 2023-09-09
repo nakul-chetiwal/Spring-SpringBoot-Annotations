@@ -6,6 +6,7 @@ import com.spring.annotation.SpringAnnotation.model.TestBean;
 import com.spring.annotation.SpringAnnotation.service.StudentService;
 import org.aspectj.weaver.ast.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,9 @@ import java.util.Optional;
 @RequestMapping("/students")
 public class StudentController {
 
+    // In Qualifier annotation use Alias name i.e Just make first letter of clas small letter
     @Autowired
+    @Qualifier("studentServiceImpl")
     private StudentService studentService;
 
     @Autowired
