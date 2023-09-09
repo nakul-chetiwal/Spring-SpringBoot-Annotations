@@ -19,7 +19,6 @@ public class StudentController {
 
     // In Qualifier annotation use Alias name i.e Just make first letter of clas small letter
     @Autowired
-    @Qualifier("studentServiceImpl")
     private StudentService studentService;
 
     @Autowired
