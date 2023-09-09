@@ -1,6 +1,7 @@
 package com.spring.annotation.SpringAnnotation.advice;
 
 import com.spring.annotation.SpringAnnotation.exception.StudentNotFoundException;
+import com.spring.annotation.SpringAnnotation.model.AppError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

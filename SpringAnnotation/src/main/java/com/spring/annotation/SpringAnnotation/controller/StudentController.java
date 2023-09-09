@@ -2,7 +2,9 @@ package com.spring.annotation.SpringAnnotation.controller;
 
 import com.spring.annotation.SpringAnnotation.entity.Student;
 import com.spring.annotation.SpringAnnotation.exception.StudentNotFoundException;
+import com.spring.annotation.SpringAnnotation.model.TestBean;
 import com.spring.annotation.SpringAnnotation.service.StudentService;
+import org.aspectj.weaver.ast.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,9 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private TestBean testBean;
 
 
 
@@ -41,6 +46,7 @@ public class StudentController {
 
     @GetMapping("/all")
     public ResponseEntity<List<Student>> getStudents() {
+        testBean.TestBeanMethod();
         return ResponseEntity.ok(studentService.getStudents());
     }
 

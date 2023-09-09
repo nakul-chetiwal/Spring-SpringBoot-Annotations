@@ -1,4 +1,4 @@
-package com.spring.annotation.SpringAnnotation.advice;
+package com.spring.annotation.SpringAnnotation.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
