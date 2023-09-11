@@ -1,5 +1,6 @@
 package com.spring.annotation.SpringAnnotation.controller;
 
+import com.spring.annotation.SpringAnnotation.config.MailProps;
 import com.spring.annotation.SpringAnnotation.entity.Student;
 import com.spring.annotation.SpringAnnotation.exception.StudentNotFoundException;
 import com.spring.annotation.SpringAnnotation.model.LazyLoadingBean;
@@ -30,6 +31,7 @@ public class StudentController {
     @Autowired
     private LazyLoadingBean lazyLoadingBean;
 
+
     public StudentController() {
         System.out.println("controller object created ....");
     }
@@ -49,6 +51,8 @@ public class StudentController {
     private String message;
 
 
+    @Autowired
+    private MailProps mailProps;
 
 
     @PostMapping("/save")
@@ -71,6 +75,8 @@ public class StudentController {
     public ResponseEntity<List<Student>> getStudents() {
         System.out.println("value from application.properties--mail.from" + fromm + "mail.host" + hostt + "mail.port" + portt);
         System.out.println("value from custom.properties--message" + message );
+        // since @Data annotation is used in MailProps class, toString() method is overridden
+        System.out.println("mailProps class properties value: " + mailProps);
         testBean.TestBeanMethod();
         return ResponseEntity.ok(studentService.getStudents());
     }
