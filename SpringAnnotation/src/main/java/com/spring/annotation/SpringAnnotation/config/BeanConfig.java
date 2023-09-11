@@ -9,6 +9,8 @@ public class BeanConfig {
 
     @Bean
     public TestBean testBean(){
+        System.out.println("testBean object created");
+
         return new TestBean();
     }
 

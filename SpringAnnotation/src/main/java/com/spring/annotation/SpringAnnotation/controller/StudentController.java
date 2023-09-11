@@ -9,6 +9,7 @@ import com.spring.annotation.SpringAnnotation.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/students")
 @PropertySource("classpath:custom.properties")
+@Scope("prototype")
 public class StudentController {
 
     // In Qualifier annotation use Alias name i.e Just make first letter of clas small letter
