@@ -73,7 +73,7 @@ public class StudentController {
 
     @GetMapping("/all")
     public ResponseEntity<List<Student>> getStudents() {
-        System.out.println("value from application.properties--mail.from" + fromm + "mail.host" + hostt + "mail.port" + portt);
+        System.out.println("value from application.properties--mail.from: " + fromm + " mail.host: " + hostt + " mail.port: " + portt);
         System.out.println("value from custom.properties--message" + message );
         // since @Data annotation is used in MailProps class, toString() method is overridden
         System.out.println("mailProps class properties value: " + mailProps);

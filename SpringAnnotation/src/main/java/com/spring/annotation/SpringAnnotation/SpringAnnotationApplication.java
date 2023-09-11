@@ -2,17 +2,23 @@ package com.spring.annotation.SpringAnnotation;
 
 import com.spring.annotation.SpringAnnotation.entity.Student;
 import com.spring.annotation.SpringAnnotation.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 import javax.annotation.PostConstruct;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @SpringBootApplication
-public class SpringAnnotationApplication {
+public class SpringAnnotationApplication implements CommandLineRunner {
 
 	private StudentRepository studentRepository;
+
+	@Autowired
+	private ApplicationContext applicationContext;
 
 	public SpringAnnotationApplication(StudentRepository studentRepository) {
 		this.studentRepository = studentRepository;
@@ -48,4 +54,12 @@ public class SpringAnnotationApplication {
 		SpringApplication.run(SpringAnnotationApplication.class, args);
 	}
 
+	@Override
+	public void run(String... args) throws Exception {
+
+//		String[] beans = applicationContext.getBeanDefinitionNames();
+//		for (String bean : beans) {
+//			System.out.println(bean);
+//		}
+	}
 }
