@@ -19,7 +19,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/students")
 @PropertySource("classpath:custom.properties")
-@Scope("prototype")
+//@Scope("prototype")
 public class StudentController {
 
     // In Qualifier annotation use Alias name i.e Just make first letter of clas small letter
