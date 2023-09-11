@@ -6,5 +6,5 @@ public class TestBean {
     }
 }
 
-// Above we could have also made a Spring bean through spring IOC but we did it with the
-// help of @configuration and @bean annotaiton
+// Above we could have also made a Spring bean through @Component but we did it with the
+// help of @configuration and @bean annotation

@@ -2,6 +2,8 @@ package com.spring.annotation.SpringAnnotation.controller;
 
 import com.spring.annotation.SpringAnnotation.entity.Student;
 import com.spring.annotation.SpringAnnotation.exception.StudentNotFoundException;
+import com.spring.annotation.SpringAnnotation.model.EagerLoadingBean;
+import com.spring.annotation.SpringAnnotation.model.LazyLoadingBean;
 import com.spring.annotation.SpringAnnotation.model.TestBean;
 import com.spring.annotation.SpringAnnotation.service.StudentService;
 import org.aspectj.weaver.ast.Test;
@@ -24,7 +26,9 @@ public class StudentController {
     @Autowired
     private TestBean testBean;
 
-
+    // spring bean (lazyLoadingBean) is created because we have autowired it. EagerLoadingBean is created even though the @Autowired is not use(DI is not done)
+    @Autowired
+    private LazyLoadingBean lazyLoadingBean;
 
     public StudentController() {
         System.out.println("controller object created ....");
