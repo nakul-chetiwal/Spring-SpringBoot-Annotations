@@ -2,13 +2,12 @@ package com.spring.annotation.SpringAnnotation.controller;
 
 import com.spring.annotation.SpringAnnotation.entity.Student;
 import com.spring.annotation.SpringAnnotation.exception.StudentNotFoundException;
-import com.spring.annotation.SpringAnnotation.model.EagerLoadingBean;
 import com.spring.annotation.SpringAnnotation.model.LazyLoadingBean;
 import com.spring.annotation.SpringAnnotation.model.TestBean;
 import com.spring.annotation.SpringAnnotation.service.StudentService;
-import org.aspectj.weaver.ast.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/students")
+@PropertySource("classpath:custom.properties")
 public class StudentController {
 
     // In Qualifier annotation use Alias name i.e Just make first letter of clas small letter
@@ -33,6 +33,23 @@ public class StudentController {
     public StudentController() {
         System.out.println("controller object created ....");
     }
+
+    // key value found from application.properties
+    @Value("${mail.from}")
+    private String fromm;
+
+    @Value("${mail.host}")
+    private String hostt;
+
+    @Value("${mail.port}")
+    private String portt;
+
+    // key value found from custom.properties- @propertysource() annotation is required to find key value from non application.properties
+    @Value("${message}")
+    private String message;
+
+
+
 
     @PostMapping("/save")
     public ResponseEntity<Student> addStudent(@RequestBody Student student) {
@@ -52,6 +69,8 @@ public class StudentController {
 
     @GetMapping("/all")
     public ResponseEntity<List<Student>> getStudents() {
+        System.out.println("value from application.properties--mail.from" + fromm + "mail.host" + hostt + "mail.port" + portt);
+        System.out.println("value from custom.properties--message" + message );
         testBean.TestBeanMethod();
         return ResponseEntity.ok(studentService.getStudents());
     }
